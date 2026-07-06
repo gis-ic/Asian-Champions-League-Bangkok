@@ -21,6 +21,9 @@
   :root{
     --crimson:#7a1420;--crimson-deep:#5c0f18;--gold:#b8902f;--gold-soft:#cfa451;--gold-pale:#efe3c2;
     --acl:#16306b;--acl-soft:#2a4a92;--acl-pale:#eef3fb;--acl-line:#d3ddef;
+    --subj-ma:#0f8a7e;--subj-ma-pale:#e4f4f1;
+    --subj-sc:#7b4bb5;--subj-sc-pale:#f0eafa;
+    --subj-en:#d1552e;--subj-en-pale:#fbeee7;
     --paper:#f4f1ea;--card:#ffffff;--ink:#241a1b;--muted:#786c69;--faint:#a99f9a;--line:#e9e1d4;
     --ok:#1f7a4d;--ok-soft:#e7f3ec;--err:#b3261e;--err-soft:#fbeceb;
     --shadow:0 16px 50px rgba(92,15,24,.12);
@@ -92,8 +95,14 @@
   .info-p strong{color:var(--crimson);font-weight:600}
 
   .subjects{display:flex;gap:8px;margin:12px 0}
-  .subj{flex:1;text-align:center;background:var(--acl-pale);border:1px solid var(--acl-line);border-radius:10px;padding:10px 6px}
-  .subj .abbr{font-weight:700;color:var(--acl);font-size:13px}
+  .subj{flex:1;text-align:center;border-radius:10px;padding:10px 6px;border:1px solid}
+  .subj.ma{background:var(--subj-ma-pale);border-color:#bfe4de}
+  .subj.sc{background:var(--subj-sc-pale);border-color:#dccef0}
+  .subj.en{background:var(--subj-en-pale);border-color:#f2d3c5}
+  .subj .abbr{font-weight:700;font-size:13px}
+  .subj.ma .abbr{color:var(--subj-ma)}
+  .subj.sc .abbr{color:var(--subj-sc)}
+  .subj.en .abbr{color:var(--subj-en)}
   .subj .full{font-size:9.5px;color:var(--muted);margin-top:2px;line-height:1.3}
   .subj .full.lao{font-family:'Phetsarath',sans-serif}
 
@@ -180,10 +189,19 @@
   .subj-opt .box svg{width:13px;height:13px;stroke:#fff;stroke-width:3;fill:none;opacity:0;transition:opacity .1s}
   .subj-opt.sel{border-color:var(--acl);background:var(--acl-pale)}
   .subj-opt.sel .box{background:var(--acl);border-color:var(--acl)}
+  .subj-opt.ma.sel{border-color:var(--subj-ma);background:var(--subj-ma-pale)}
+  .subj-opt.ma.sel .box{background:var(--subj-ma);border-color:var(--subj-ma)}
+  .subj-opt.sc.sel{border-color:var(--subj-sc);background:var(--subj-sc-pale)}
+  .subj-opt.sc.sel .box{background:var(--subj-sc);border-color:var(--subj-sc)}
+  .subj-opt.en.sel{border-color:var(--subj-en);background:var(--subj-en-pale)}
+  .subj-opt.en.sel .box{background:var(--subj-en);border-color:var(--subj-en)}
   .subj-opt.sel .box svg{opacity:1}
   .subj-opt .info{flex:1;min-width:0}
   .subj-opt .sname{font-weight:600;font-size:14px;color:var(--ink)}
-  .subj-opt .scode{font-size:11px;color:var(--muted)}
+  .subj-opt .scode{font-size:11px;font-weight:600}
+  .subj-opt.ma .scode{color:var(--subj-ma)}
+  .subj-opt.sc .scode{color:var(--subj-sc)}
+  .subj-opt.en .scode{color:var(--subj-en)}
   .subj-opt .medal-tag{flex:0 0 auto;font-size:10px;font-weight:700;padding:3px 9px;border-radius:6px;color:#fff;letter-spacing:.02em}
   .medal-tag.Diamond{background:#5b8def}.medal-tag.Gold{background:#c99a2e}.medal-tag.Silver{background:#8a8f98}.medal-tag.Bronze{background:#a9713f}
   .medal-tag.none{background:#e2e9f4;color:var(--acl)}
@@ -304,13 +322,13 @@
       <div class="panel-sub" data-en>Congratulations on a wonderful achievement.</div>
       <div class="panel-sub lao" data-lo>ຂໍສະແດງຄວາມຍິນດີ ກັບຄືນຜົນສຳເລັດອັນຍອດຢ້ຽມ</div>
 
-      <p class="info-p" data-en>Following the <strong>World Mathematics, Science, and English Cup</strong>, students who earned a <strong>Bronze, Silver, Gold, or Diamond medal</strong> are qualified to represent Golden International School at the ACL International Finals in Bangkok.</p>
-      <p class="info-p lao" data-lo>ຫຼັງຈາກ ການແຂ່ງຂັນ <strong>World Mathematics, Science ແລະ English Cup</strong>, ນັກຮຽນ ທີ່ໄດ້ຮັບ <strong>ຫຼຽນ ທອງແດງ, ເງິນ, ຄຳ ຫຼື ເພັດ</strong> ແມ່ນ ຜ່ານການຄັດເລືອກ ເພື່ອ ເປັນຕົວແທນ ຂອງ ໂຮງຮຽນ ນານາຊາດ ໂກເດິນ ໃນ ຮອບຊິງຊະນະເລີດ ສາກົນ ທີ່ ບາງກອກ.</p>
+      <p class="info-p" data-en>Following the <strong>World Mathematics, Science, and English Cup</strong> held in April 2026, students who earned a <strong>Bronze, Silver, Gold, or Diamond medal</strong> are qualified to represent Golden International School at the ACL International Finals in Bangkok.</p>
+      <p class="info-p lao" data-lo>ຫຼັງຈາກ ການແຂ່ງຂັນ <strong>World Mathematics, Science ແລະ English Cup</strong> ທີ່ຈັດຂຶ້ນໃນເດືອນ ເມສາ 2026, ນັກຮຽນ ທີ່ໄດ້ຮັບ <strong>ຫຼຽນ ທອງແດງ, ເງິນ, ຄຳ ຫຼື ເພັດ</strong> ແມ່ນ ຜ່ານການຄັດເລືອກ ເພື່ອ ເປັນຕົວແທນ ຂອງ ໂຮງຮຽນ ນານາຊາດ ໂກເດິນ ໃນ ຮອບຊິງຊະນະເລີດ ສາກົນ ທີ່ ບາງກອກ.</p>
 
       <div class="subjects">
-        <div class="subj"><div class="abbr">AMCL</div><div class="full" data-en>Mathematics</div><div class="full lao" data-lo>ຄະນິດສາດ</div></div>
-        <div class="subj"><div class="abbr">ASCL</div><div class="full" data-en>Science</div><div class="full lao" data-lo>ວິທະຍາສາດ</div></div>
-        <div class="subj"><div class="abbr">AECL</div><div class="full" data-en>English</div><div class="full lao" data-lo>ພາສາອັງກິດ</div></div>
+        <div class="subj ma"><div class="abbr">AMCL</div><div class="full" data-en>Mathematics</div><div class="full lao" data-lo>ຄະນິດສາດ</div></div>
+        <div class="subj sc"><div class="abbr">ASCL</div><div class="full" data-en>Science</div><div class="full lao" data-lo>ວິທະຍາສາດ</div></div>
+        <div class="subj en"><div class="abbr">AECL</div><div class="full" data-en>English</div><div class="full lao" data-lo>ພາສາອັງກິດ</div></div>
       </div>
 
       <div class="callout" data-en>The registration fee gives your child <strong>full access to all three subjects</strong> (Mathematics, Science, and English), offered at the special single-subject rate.</div>
@@ -343,8 +361,8 @@
       <div class="callout" data-en>In short: each student pays <strong>600 USD</strong> plus their own airfare. If a parent or guardian joins as companion, add <strong>500 USD</strong> (also without airfare).</div>
       <div class="callout lao" data-lo>ສະຫຼຸບ: ນັກຮຽນແຕ່ລະຄົນ ຈ່າຍ <strong>600 USD</strong> ບວກກັບຄ່າປີ້ຍົນຂອງຕົນເອງ. ຫາກພໍ່ແມ່ ຫຼື ຜູ້ປົກຄອງ ໄປເປັນຜູ້ຕິດຕາມ, ບວກເພີ່ມ <strong>500 USD</strong> (ບໍ່ລວມຄ່າປີ້ຍົນເຊັ່ນກັນ).</div>
 
-      <div class="callout" data-en>A <strong>school staff representative</strong> from GIS will accompany the students throughout the trip. Especially for younger students, we recommend that an interested <strong>parent or guardian</strong> join as a companion, for added comfort and safety.</div>
-      <div class="callout lao" data-lo>ຈະ ມີ <strong>ຕົວແທນ ພະນັກງານ ໂຮງຮຽນ</strong> ຈາກ GIS ໄປ ຕິດຕາມ ນັກຮຽນ ຕະຫຼອດ ການເດີນທາງ. ໂດຍ ສະເພາະ ນັກຮຽນ ອາຍຸ ນ້ອຍ, ພວກເຮົາ ແນະນຳ ໃຫ້ <strong>ພໍ່ແມ່ ຫຼື ຜູ້ປົກຄອງ</strong> ທີ່ ສົນໃຈ ໄປ ເປັນ ຜູ້ຕິດຕາມ, ເພື່ອ ຄວາມ ສະດວກ ແລະ ຄວາມ ປອດໄພ.</div>
+      <div class="callout" data-en>A <strong>school staff representative</strong> from GIS will travel with the students and look after them for the whole trip, so your child is always accompanied and supported. We still warmly recommend that an interested <strong>parent or guardian</strong> come along as a companion, especially for younger children, as it adds extra comfort and peace of mind.</div>
+      <div class="callout lao" data-lo>ຈະມີ <strong>ຕົວແທນພະນັກງານໂຮງຮຽນ</strong> ຈາກ GIS ເດີນທາງໄປພ້ອມກັບນັກຮຽນ ແລະ ເບິ່ງແຍງດູແລ ຕະຫຼອດການເດີນທາງ, ສະນັ້ນ ລູກຂອງທ່ານ ຈະມີຄົນຕິດຕາມ ແລະ ດູແລ ຢູ່ສະເໝີ. ພວກເຮົາ ຍັງແນະນຳ ໃຫ້ <strong>ພໍ່ແມ່ ຫຼື ຜູ້ປົກຄອງ</strong> ທີ່ສົນໃຈ ໄປເປັນຜູ້ຕິດຕາມ, ໂດຍສະເພາະ ນັກຮຽນອາຍຸນ້ອຍ, ເພື່ອເພີ່ມຄວາມສະດວກ ແລະ ຄວາມສະບາຍໃຈ.</div>
 
       <div class="incl-head" data-en>What is included</div>
       <div class="incl-head lao" data-lo>ສິ່ງທີ່ລວມຢູ່ໃນຊຸດ</div>
@@ -383,8 +401,8 @@
       <div class="panel-sub" data-en>For your reference only.</div>
       <div class="panel-sub lao" data-lo>ສຳລັບອ້າງອີງເທົ່ານັ້ນ</div>
 
-      <p class="info-p tight" data-en>These are suggested Vientiane to Bangkok flights for reference only. <strong>Parents book their own flights</strong>, and our school staff are happy to assist if you need help.</p>
-      <p class="info-p tight lao" data-lo>ນີ້ແມ່ນຖ້ຽວບິນ ວຽງຈັນ ຫາ ບາງກອກ ທີ່ແນະນຳ ສຳລັບອ້າງອີງເທົ່ານັ້ນ <strong>ພໍ່ແມ່ຈອງຖ້ຽວບິນດ້ວຍຕົນເອງ</strong>, ແລະ ພະນັກງານຂອງໂຮງຮຽນຍິນດີຊ່ວຍເຫຼືອ ຫາກທ່ານຕ້ອງການ.</p>
+      <p class="info-p tight" data-en>These are suggested Vientiane to Bangkok flights, shown for reference only. <strong>Parents book their own flights.</strong> Our school staff are happy to help if you need assistance, and for children who will not be travelling with their own parents, we can coordinate flights so they fly together with the teacher.</p>
+      <p class="info-p tight lao" data-lo>ນີ້ແມ່ນຖ້ຽວບິນ ວຽງຈັນ ຫາ ບາງກອກ ທີ່ແນະນຳ ສະແດງໄວ້ສຳລັບອ້າງອີງເທົ່ານັ້ນ. <strong>ພໍ່ແມ່ຈອງຖ້ຽວບິນດ້ວຍຕົນເອງ.</strong> ພະນັກງານຂອງໂຮງຮຽນ ຍິນດີຊ່ວຍເຫຼືອ ຫາກທ່ານຕ້ອງການ, ແລະ ສຳລັບເດັກ ທີ່ຈະບໍ່ໄດ້ເດີນທາງກັບພໍ່ແມ່ຂອງຕົນ, ພວກເຮົາສາມາດ ຈັດຖ້ຽວບິນ ໃຫ້ພວກເຂົາເດີນທາງໄປພ້ອມກັບຄູໄດ້.</p>
 
       <div class="flights">
         <div class="flight">
@@ -451,6 +469,10 @@
         </div>
         <div class="hint" data-en>Especially for younger students, we recommend a parent or guardian companion for safety.</div>
         <div class="hint lao" data-lo>ໂດຍສະເພາະນັກຮຽນອາຍຸນ້ອຍ, ພວກເຮົາແນະນຳໃຫ້ມີພໍ່ແມ່ ຫຼື ຜູ້ປົກຄອງເປັນຜູ້ຕິດຕາມ ເພື່ອຄວາມປອດໄພ</div>
+        <div class="no-note hidden" id="compNoNote">
+          <span data-en>No problem. Since your child will travel without a parent or guardian, our school staff will coordinate their flight so they travel together with the teacher’s group. We will contact you about the details.</span>
+          <span class="lao" data-lo>ບໍ່ເປັນຫຍັງ. ເນື່ອງຈາກ ລູກຂອງທ່ານ ຈະເດີນທາງ ໂດຍບໍ່ມີພໍ່ແມ່ ຫຼື ຜູ້ປົກຄອງ, ພະນັກງານຂອງໂຮງຮຽນ ຈະຈັດຖ້ຽວບິນ ໃຫ້ພວກເຂົາເດີນທາງໄປພ້ອມກັບກຸ່ມຂອງຄູ. ພວກເຮົາຈະຕິດຕໍ່ຫາທ່ານ ກ່ຽວກັບລາຍລະອຽດ.</span>
+        </div>
         <div class="err-msg"><span data-en>Please let us know.</span><span class="lao" data-lo>ກະລຸນາແຈ້ງໃຫ້ຮູ້.</span></div>
       </div>
 
@@ -565,7 +587,8 @@
       const meta=SUBJ_META[k], medal=s.s[k];
       const nm=isLo?meta.lo:meta.en;
       const tag=medal?'<span class="medal-tag '+medal+'">'+medal+'</span>':(isLo?'<span class="medal-tag none lao">ລວມ</span>':'<span class="medal-tag none">Included</span>');
-      return '<div class="subj-opt" data-k="'+k+'" tabindex="0" role="checkbox" aria-checked="false"><span class="box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span><span class="info"><span class="sname">'+nm+'</span><span class="scode"> · '+meta.code+'</span></span>'+tag+'</div>';
+      const clsMap={Ma:'ma',Sc:'sc',En:'en'};
+      return '<div class="subj-opt '+clsMap[k]+'" data-k="'+k+'" tabindex="0" role="checkbox" aria-checked="false"><span class="box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span><span class="info"><span class="sname">'+nm+'</span><span class="scode"> · '+meta.code+'</span></span>'+tag+'</div>';
     }).join('');
     subjSelect.querySelectorAll('.subj-opt').forEach(el=>{
       const k=el.dataset.k;
@@ -614,9 +637,10 @@
   const noNote=document.getElementById('noNote');
   wireSeg('intSeg',val=>{
     if(val==='Yes'){ fComp.classList.remove('hidden'); noNote.classList.add('hidden'); }
-    else{ fComp.classList.add('hidden'); noNote.classList.remove('hidden'); const cs=document.getElementById('compSeg'); cs._opts.forEach(o=>{o.classList.remove('sel');o.setAttribute('aria-checked','false')}); }
+    else{ fComp.classList.add('hidden'); noNote.classList.remove('hidden'); const cs=document.getElementById('compSeg'); cs._opts.forEach(o=>{o.classList.remove('sel');o.setAttribute('aria-checked','false')}); document.getElementById('compNoNote').classList.add('hidden'); }
   });
-  wireSeg('compSeg');
+  const compNoNote=document.getElementById('compNoNote');
+  wireSeg('compSeg',val=>{ compNoNote.classList.toggle('hidden',val!=='No'); });
 
   /* validation + submit */
   const formError=document.getElementById('formError');
@@ -655,7 +679,8 @@
     let recordId=''; try{ recordId=localStorage.getItem('acl_recordId')||''; }catch(e){}
     if(!recordId) recordId='r'+Date.now()+Math.random().toString(36).slice(2,8);
 
-    const payload={recordId,studentName,subjects:subjectsText||'—',medals:medalsText||'—',interested,companion:interested==='Yes'?(companion||'Not specified'):'—',parentName,contact,submittedAt:new Date().toISOString()};
+    const travelsWithTeacher = (interested==='Yes' && companion==='No') ? 'Yes' : 'No';
+    const payload={recordId,studentName,subjects:subjectsText||'—',medals:medalsText||'—',interested,companion:interested==='Yes'?(companion||'Not specified'):'—',travelsWithTeacher,parentName,contact,submittedAt:new Date().toISOString()};
 
     submitBtn.disabled=true;
     const lang=document.body.classList.contains('lo')?'lo':'en';
@@ -694,13 +719,13 @@
       lo.textContent='ຂອບໃຈ ທີ່ ແຈ້ງ ໃຫ້ ຮູ້. ຫາກ ທ່ານ ຢາກ ປຶກສາ, ພະນັກງານ ຂອງ ໂຮງຮຽນ ຍິນດີ ຊ່ວຍເຫຼືອ. ຕິດຕໍ່ ໄດ້ ຕະຫຼອດ.';
     }
     const isLo=document.body.classList.contains('lo'); const ix=isLo?1:0;
-    const L={student:['Student','ນັກຮຽນ'],subj:['Subjects','ວິຊາ'],medal:['Medals','ຫຼຽນ'],int:['Interested','ເຂົ້າຮ່ວມ'],comp:['Companion','ຜູ້ຕິດຕາມ']};
+    const L={student:['Student','ນັກຮຽນ'],subj:['Subjects','ວິຊາ'],medal:['Medals','ຫຼຽນ'],int:['Interested','ເຂົ້າຮ່ວມ'],comp:['Companion','ຜູ້ຕິດຕາມ'],teach:['Travels with teacher','ເດີນທາງກັບຄູ']};
     const intTxt=p.interested==='Yes'?(isLo?'ຢາກເຂົ້າຮ່ວມ':'Yes'):(isLo?'ບໍ່':'No');
     let rows='<div class="srow"><span class="k'+(isLo?' lao':'')+'">'+L.student[ix]+'</span><span class="v">'+esc(p.studentName)+'</span></div>';
     if(p.subjects&&p.subjects!=='—') rows+='<div class="srow"><span class="k'+(isLo?' lao':'')+'">'+L.subj[ix]+'</span><span class="v">'+esc(p.subjects)+'</span></div>';
     if(p.medals&&p.medals!=='—') rows+='<div class="srow"><span class="k'+(isLo?' lao':'')+'">'+L.medal[ix]+'</span><span class="v">'+esc(p.medals)+'</span></div>';
     rows+='<div class="srow"><span class="k'+(isLo?' lao':'')+'">'+L.int[ix]+'</span><span class="v">'+intTxt+'</span></div>';
-    if(p.interested==='Yes'){ const compTxt=p.companion==='Yes'?(isLo?'ໄປດ້ວຍ':'Yes'):(p.companion==='No'?(isLo?'ບໍ່ໄປ':'No'):p.companion); rows+='<div class="srow"><span class="k'+(isLo?' lao':'')+'">'+L.comp[ix]+'</span><span class="v">'+compTxt+'</span></div>'; }
+    if(p.interested==='Yes'){ const compTxt=p.companion==='Yes'?(isLo?'ໄປດ້ວຍ':'Yes'):(p.companion==='No'?(isLo?'ບໍ່ໄປ':'No'):p.companion); rows+='<div class="srow"><span class="k'+(isLo?' lao':'')+'">'+L.comp[ix]+'</span><span class="v">'+compTxt+'</span></div>'; if(p.travelsWithTeacher==='Yes'){ rows+='<div class="srow"><span class="k'+(isLo?' lao':'')+'">'+L.teach[ix]+'</span><span class="v">'+(isLo?'ແມ່ນ':'Yes')+'</span></div>'; } }
     document.getElementById('summaryBox').innerHTML=rows;
     s.classList.add('show');
     document.querySelector('.card').scrollIntoView({behavior:'smooth',block:'start'});
