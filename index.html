@@ -219,6 +219,23 @@
   .no-note{margin-top:11px;font-size:12px;color:#3a2c2d;background:var(--acl-pale);border:1px solid var(--acl-line);border-radius:9px;padding:11px 13px;line-height:1.55}
   .no-note.lao{font-family:'Phetsarath',sans-serif}
 
+  /* companion details repeater */
+  .comp-row{display:flex;gap:8px;align-items:flex-start;margin-bottom:9px}
+  .comp-row .cr-name{flex:1 1 auto}
+  .comp-row .cr-age{flex:0 0 84px;width:84px}
+  .comp-row input{width:100%;padding:12px 13px;border:1px solid var(--line);border-radius:10px;font-family:inherit;font-size:15px;color:var(--ink);background:#fff;transition:border-color .15s,box-shadow .15s;-webkit-appearance:none;appearance:none}
+  .comp-row input:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 3px rgba(184,144,47,.15)}
+  .comp-row input.bad{border-color:var(--err)}
+  .comp-row .cr-del{flex:0 0 auto;width:44px;height:46px;border:1px solid var(--line);border-radius:10px;background:#fff;color:var(--muted);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .15s}
+  .comp-row .cr-del:hover{border-color:var(--err);color:var(--err)}
+  .comp-row .cr-del svg{width:16px;height:16px}
+  .comp-row .cr-del:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+  .add-comp{display:inline-flex;align-items:center;gap:7px;margin-top:2px;background:var(--acl-pale);border:1px solid var(--acl-line);color:var(--acl);font-family:inherit;font-size:13px;font-weight:600;padding:10px 15px;border-radius:9px;cursor:pointer;transition:all .15s}
+  .add-comp.lao{font-family:'Phetsarath',sans-serif}
+  .add-comp:hover{background:#e3ebf7}
+  .add-comp:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+  .add-comp svg{width:15px;height:15px}
+
   .hidden{display:none !important}
 
   /* nav buttons */
@@ -476,6 +493,18 @@
         <div class="err-msg"><span data-en>Please let us know.</span><span class="lao" data-lo>ກະລຸນາແຈ້ງໃຫ້ຮູ້.</span></div>
       </div>
 
+      <div class="field hidden" id="f-compDetails">
+        <label class="q"><span data-en>Companion details</span><span class="lao" data-lo>ຂໍ້ມູນຜູ້ຕິດຕາມ</span></label>
+        <div class="hint" style="margin-top:0;margin-bottom:10px" data-en>Please add the name and age of each parent or guardian who will join.</div>
+        <div class="hint lao" style="margin-top:0;margin-bottom:10px" data-lo>ກະລຸນາໃສ່ຊື່ ແລະ ອາຍຸ ຂອງພໍ່ແມ່ ຫຼື ຜູ້ປົກຄອງ ແຕ່ລະຄົນ ທີ່ຈະໄປພ້ອມ.</div>
+        <div id="compList"></div>
+        <button type="button" class="add-comp" id="addCompBtn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          <span data-en>Add another companion</span><span class="lao" data-lo>ເພີ່ມຜູ້ຕິດຕາມ</span>
+        </button>
+        <div class="err-msg"><span data-en>Please add at least one companion’s name and age.</span><span class="lao" data-lo>ກະລຸນາໃສ່ຊື່ ແລະ ອາຍຸ ຂອງຜູ້ຕິດຕາມ ຢ່າງໜ້ອຍໜຶ່ງຄົນ.</span></div>
+      </div>
+
       <div class="field" id="f-parent">
         <label class="q" for="parentName"><span data-en>Parent or guardian name</span><span class="lao" data-lo>ຊື່ພໍ່ແມ່ ຫຼື ຜູ້ປົກຄອງ</span><span class="req">*</span></label>
         <input type="text" id="parentName" autocomplete="name">
@@ -517,7 +546,7 @@
 </div>
 
 <script>
-  const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbx6M-avFcA_VD0t0pV8EkF7zYPdwfD4cF7gHjV_kEhqt3NtQIUH4Q41r9I3S52QeydP/exec";
+  const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwVnS_ge6YyIXMhNCjtrnQohEE1UW9BizvCYxhX9FiTp5b56yXK2UbwodIfI9E_71HOYg/exec";
   const STUDENTS = [{"n": "Alaya Phimphachanh", "s": {"En": "Bronze"}}, {"n": "Amarin Southichack", "s": {"Ma": "Bronze"}}, {"n": "Anisa Saiyabounsy", "s": {"Ma": "Bronze"}}, {"n": "Aphixab Boualivanh", "s": {"Sc": "Silver"}}, {"n": "Aphixai Boualivanh", "s": {"En": "Diamond", "Ma": "Silver"}}, {"n": "Aza Lounnalath", "s": {"Ma": "Bronze"}}, {"n": "Bounthavikoun Phongthisouk", "s": {"Sc": "Silver"}}, {"n": "Carissa Lim", "s": {"En": "Gold"}}, {"n": "Cat Tien Nguyen Ngoc", "s": {"En": "Diamond"}}, {"n": "Falada Thongsakdy", "s": {"Sc": "Diamond"}}, {"n": "Fongmaly Sengkham", "s": {"En": "Gold", "Sc": "Silver"}}, {"n": "Hu Jing Qi", "s": {"En": "Bronze", "Ma": "Bronze", "Sc": "Silver"}}, {"n": "Immany Phongthisouk", "s": {"En": "Bronze"}}, {"n": "Itthiphon Souksomboun", "s": {"Sc": "Bronze"}}, {"n": "Jae Jin Yang", "s": {"Sc": "Bronze"}}, {"n": "Kidtixay Souksomboun", "s": {"Sc": "Silver"}}, {"n": "Master Jay Pheeraphat Reneil", "s": {"Sc": "Bronze"}}, {"n": "Max Panyaphat Reneil", "s": {"En": "Silver"}}, {"n": "Naphaphone Sengthong", "s": {"En": "Silver"}}, {"n": "Nathan Lim Ke Gou", "s": {"En": "Gold"}}, {"n": "Nounthida Somalat", "s": {"En": "Bronze"}}, {"n": "Phetpaseuth Nousihalath", "s": {"Ma": "Bronze"}}, {"n": "Phetsingto Mangkhonvilay", "s": {"Ma": "Bronze"}}, {"n": "Philada Bounyavong", "s": {"En": "Bronze"}}, {"n": "Phonemany Daopasong", "s": {"En": "Gold"}}, {"n": "Phonepachabade Keomanydeth", "s": {"En": "Gold"}}, {"n": "Phonesanith Phommasak", "s": {"Ma": "Bronze"}}, {"n": "Phonesirimaya Keomanydeth", "s": {"En": "Gold"}}, {"n": "Phonevilay Mahavong", "s": {"En": "Bronze"}}, {"n": "Phoummithad Alounsavath", "s": {"Sc": "Bronze"}}, {"n": "Sengsavanh Sihavong", "s": {"En": "Bronze"}}, {"n": "Sengtavanh Vongsa", "s": {"Ma": "Bronze"}}, {"n": "Sitthixok Souvannaly", "s": {"Sc": "Gold"}}, {"n": "Sivary Dengsok", "s": {"En": "Diamond", "Sc": "Bronze"}}, {"n": "Soudaphin Souvannaly", "s": {"En": "Silver"}}, {"n": "Souttideth Douangmala", "s": {"Sc": "Silver"}}, {"n": "Souttideth Vongseng", "s": {"Ma": "Bronze"}}, {"n": "Thidavanh Chittavong", "s": {"Ma": "Bronze"}}, {"n": "Vatthana Chittavong", "s": {"Sc": "Bronze"}}];
   const SUBJ_META = {Ma:{en:"Mathematics",lo:"ຄະນິດສາດ",code:"AMCL"},Sc:{en:"Science",lo:"ວິທະຍາສາດ",code:"ASCL"},En:{en:"English",lo:"ພາສາອັງກິດ",code:"AECL"}};
   let currentStudent=null, selectedSubjects={}, cur=0;
@@ -635,12 +664,43 @@
   }
   const fComp=document.getElementById('f-companion');
   const noNote=document.getElementById('noNote');
+  const fCompDetails=document.getElementById('f-compDetails');
+  const compList=document.getElementById('compList');
+
+  function makeCompRow(){
+    const row=document.createElement('div');
+    row.className='comp-row';
+    const isLo=document.body.classList.contains('lo');
+    row.innerHTML=
+      '<div class="cr-name"><input type="text" class="c-name" autocomplete="off" placeholder="'+(isLo?'ຊື່ ແລະ ນາມສະກຸນ':'Full name')+'"></div>'
+      +'<div class="cr-age"><input type="number" class="c-age" inputmode="numeric" min="0" placeholder="'+(isLo?'ອາຍຸ':'Age')+'"></div>'
+      +'<button type="button" class="cr-del" aria-label="Remove"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/><path d="M10 11v6M14 11v6"/></svg></button>';
+    row.querySelector('.cr-del').addEventListener('click',()=>{
+      row.remove();
+      if(!compList.querySelector('.comp-row')) makeCompRow(); // always keep at least one
+    });
+    row.querySelectorAll('input').forEach(inp=>inp.addEventListener('input',()=>{ inp.classList.remove('bad'); fCompDetails.classList.remove('invalid'); }));
+    compList.appendChild(row);
+    return row;
+  }
+  function resetCompList(){ compList.innerHTML=''; makeCompRow(); }
+  document.getElementById('addCompBtn').addEventListener('click',()=>makeCompRow());
+
   wireSeg('intSeg',val=>{
     if(val==='Yes'){ fComp.classList.remove('hidden'); noNote.classList.add('hidden'); }
-    else{ fComp.classList.add('hidden'); noNote.classList.remove('hidden'); const cs=document.getElementById('compSeg'); cs._opts.forEach(o=>{o.classList.remove('sel');o.setAttribute('aria-checked','false')}); document.getElementById('compNoNote').classList.add('hidden'); }
+    else{
+      fComp.classList.add('hidden'); noNote.classList.remove('hidden');
+      const cs=document.getElementById('compSeg'); cs._opts.forEach(o=>{o.classList.remove('sel');o.setAttribute('aria-checked','false')});
+      document.getElementById('compNoNote').classList.add('hidden');
+      fCompDetails.classList.add('hidden');
+    }
   });
   const compNoNote=document.getElementById('compNoNote');
-  wireSeg('compSeg',val=>{ compNoNote.classList.toggle('hidden',val!=='No'); });
+  wireSeg('compSeg',val=>{
+    compNoNote.classList.toggle('hidden',val!=='No');
+    if(val==='Yes'){ fCompDetails.classList.remove('hidden'); if(!compList.querySelector('.comp-row')) resetCompList(); }
+    else{ fCompDetails.classList.add('hidden'); }
+  });
 
   /* validation + submit */
   const formError=document.getElementById('formError');
@@ -665,11 +725,32 @@
     const contact=document.getElementById('contact').value.trim();
     const digits=contact.replace(/\D/g,'');
 
+    // gather companion details (name + age) when companion = Yes
+    let companions=[];
+    let compDetailsBad=false;
+    if(interested==='Yes' && companion==='Yes'){
+      const rows=[...compList.querySelectorAll('.comp-row')];
+      rows.forEach(row=>{
+        const nameEl=row.querySelector('.c-name'), ageEl=row.querySelector('.c-age');
+        const nm=nameEl.value.trim(), ag=ageEl.value.trim();
+        // a row counts if either field is filled; then both are required
+        if(nm||ag){
+          const nb=!nm, ab=(ag===''||isNaN(Number(ag))||Number(ag)<0);
+          nameEl.classList.toggle('bad',nb); ageEl.classList.toggle('bad',ab);
+          if(nb||ab) compDetailsBad=true; else companions.push({name:nm,age:ag});
+        } else {
+          nameEl.classList.remove('bad'); ageEl.classList.remove('bad');
+        }
+      });
+      if(companions.length===0) compDetailsBad=true;
+    }
+
     let ok=true;
     setInvalid('f-student',!studentName); if(!studentName) ok=false;
     if(hasSubjectStep){ setInvalid('f-subjects',subjKeys.length===0); if(subjKeys.length===0) ok=false; }
     setInvalid('f-interested',!interested); if(!interested) ok=false;
     if(interested==='Yes'){ setInvalid('f-companion',!companion); if(!companion) ok=false; }
+    if(interested==='Yes' && companion==='Yes'){ setInvalid('f-compDetails',compDetailsBad); if(compDetailsBad) ok=false; }
     setInvalid('f-parent',!parentName); if(!parentName) ok=false;
     const contactBad=!contact||digits.length<6;
     setInvalid('f-contact',contactBad); if(contactBad) ok=false;
@@ -679,8 +760,9 @@
     let recordId=''; try{ recordId=localStorage.getItem('acl_recordId')||''; }catch(e){}
     if(!recordId) recordId='r'+Date.now()+Math.random().toString(36).slice(2,8);
 
+    const companionsText = companions.map(c=>c.name+' ('+c.age+')').join('; ');
     const travelsWithTeacher = (interested==='Yes' && companion==='No') ? 'Yes' : 'No';
-    const payload={recordId,studentName,subjects:subjectsText||'—',medals:medalsText||'—',interested,companion:interested==='Yes'?(companion||'Not specified'):'—',travelsWithTeacher,parentName,contact,submittedAt:new Date().toISOString()};
+    const payload={recordId,studentName,subjects:subjectsText||'—',medals:medalsText||'—',interested,companion:interested==='Yes'?(companion||'Not specified'):'—',companionCount:companions.length?String(companions.length):'—',companionDetails:companionsText||'—',travelsWithTeacher,parentName,contact,submittedAt:new Date().toISOString()};
 
     submitBtn.disabled=true;
     const lang=document.body.classList.contains('lo')?'lo':'en';
@@ -719,13 +801,13 @@
       lo.textContent='ຂອບໃຈທີ່ແຈ້ງໃຫ້ຮູ້. ຫາກທ່ານຢາກປຶກສາ ພະນັກງານຂອງໂຮງຮຽນ ຍິນດີຊ່ວຍເຫຼືອ, ຕິດຕໍ່ຫາພວກເຮົາໄດ້ຕະຫຼອດ.';
     }
     const isLo=document.body.classList.contains('lo'); const ix=isLo?1:0;
-    const L={student:['Student','ນັກຮຽນ'],subj:['Subjects','ວິຊາ'],medal:['Medals','ຫຼຽນ'],int:['Interested','ເຂົ້າຮ່ວມ'],comp:['Companion','ຜູ້ຕິດຕາມ'],teach:['Travels with teacher','ເດີນທາງກັບຄູ']};
+    const L={student:['Student','ນັກຮຽນ'],subj:['Subjects','ວິຊາ'],medal:['Medals','ຫຼຽນ'],int:['Interested','ເຂົ້າຮ່ວມ'],comp:['Companion','ຜູ້ຕິດຕາມ'],teach:['Travels with teacher','ເດີນທາງກັບຄູ'],complist:['Companions','ຜູ້ຕິດຕາມ']};
     const intTxt=p.interested==='Yes'?(isLo?'ຢາກເຂົ້າຮ່ວມ':'Yes'):(isLo?'ບໍ່':'No');
     let rows='<div class="srow"><span class="k'+(isLo?' lao':'')+'">'+L.student[ix]+'</span><span class="v">'+esc(p.studentName)+'</span></div>';
     if(p.subjects&&p.subjects!=='—') rows+='<div class="srow"><span class="k'+(isLo?' lao':'')+'">'+L.subj[ix]+'</span><span class="v">'+esc(p.subjects)+'</span></div>';
     if(p.medals&&p.medals!=='—') rows+='<div class="srow"><span class="k'+(isLo?' lao':'')+'">'+L.medal[ix]+'</span><span class="v">'+esc(p.medals)+'</span></div>';
     rows+='<div class="srow"><span class="k'+(isLo?' lao':'')+'">'+L.int[ix]+'</span><span class="v">'+intTxt+'</span></div>';
-    if(p.interested==='Yes'){ const compTxt=p.companion==='Yes'?(isLo?'ໄປດ້ວຍ':'Yes'):(p.companion==='No'?(isLo?'ບໍ່ໄປ':'No'):p.companion); rows+='<div class="srow"><span class="k'+(isLo?' lao':'')+'">'+L.comp[ix]+'</span><span class="v">'+compTxt+'</span></div>'; if(p.travelsWithTeacher==='Yes'){ rows+='<div class="srow"><span class="k'+(isLo?' lao':'')+'">'+L.teach[ix]+'</span><span class="v">'+(isLo?'ແມ່ນ':'Yes')+'</span></div>'; } }
+    if(p.interested==='Yes'){ const compTxt=p.companion==='Yes'?(isLo?'ໄປດ້ວຍ':'Yes'):(p.companion==='No'?(isLo?'ບໍ່ໄປ':'No'):p.companion); rows+='<div class="srow"><span class="k'+(isLo?' lao':'')+'">'+L.comp[ix]+'</span><span class="v">'+compTxt+'</span></div>'; if(p.companionDetails&&p.companionDetails!=='—'){ rows+='<div class="srow"><span class="k'+(isLo?' lao':'')+'">'+L.complist[ix]+'</span><span class="v">'+esc(p.companionDetails)+'</span></div>'; } if(p.travelsWithTeacher==='Yes'){ rows+='<div class="srow"><span class="k'+(isLo?' lao':'')+'">'+L.teach[ix]+'</span><span class="v">'+(isLo?'ແມ່ນ':'Yes')+'</span></div>'; } }
     document.getElementById('summaryBox').innerHTML=rows;
     s.classList.add('show');
     document.querySelector('.card').scrollIntoView({behavior:'smooth',block:'start'});
