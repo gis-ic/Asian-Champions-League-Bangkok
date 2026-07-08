@@ -757,8 +757,7 @@
 
     if(!ok){ showFormError(T.fix); const fb=document.querySelector('.field.invalid'); if(fb) fb.scrollIntoView({behavior:'smooth',block:'center'}); return; }
 
-    let recordId=''; try{ recordId=localStorage.getItem('acl_recordId')||''; }catch(e){}
-    if(!recordId) recordId='r'+Date.now()+Math.random().toString(36).slice(2,8);
+    const recordId='r'+Date.now()+Math.random().toString(36).slice(2,8);
 
     const companionsText = companions.map(c=>c.name+' ('+c.age+')').join('; ');
     const travelsWithTeacher = (interested==='Yes' && companion==='No') ? 'Yes' : 'No';
@@ -769,7 +768,7 @@
     submitBtn.innerHTML='<span class="spinner"></span>'+(lang==='lo'?'ກຳລັງສົ່ງ…':'Sending…');
 
     sendReg(payload).then(sent=>{
-      if(sent){ try{ localStorage.setItem('acl_recordId',recordId); }catch(e){} showSuccess(payload); }
+      if(sent){ showSuccess(payload); }
       else{ submitBtn.disabled=false; submitBtn.innerHTML='<span data-en>Submit registration</span><span class="lao" data-lo>ສົ່ງການລົງທະບຽນ</span>'; showFormError(T.net); formError.scrollIntoView({behavior:'smooth',block:'center'}); }
     });
   }
