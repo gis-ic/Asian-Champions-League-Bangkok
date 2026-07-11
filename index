@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Registration Closed — ACL International Finals 2026</title>
+<style>
+:root{
+  --red:#b11226;
+  --red-deep:#7f0c1b;
+  --gold:#c99a3c;
+  --ink:#1f2937;
+  --muted:#6b7280;
+  --paper:#f6f4ef;
+  --card:#ffffff;
+  --line:#e5e0d6;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  font-family:'Segoe UI',system-ui,-apple-system,'Helvetica Neue',Arial,sans-serif;
+  background:var(--paper);
+  color:var(--ink);
+  min-height:100dvh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:24px;
+}
+.card{
+  background:var(--card);
+  max-width:520px;
+  width:100%;
+  border-radius:20px;
+  border:1px solid var(--line);
+  box-shadow:0 24px 60px -30px rgba(127,12,27,.4);
+  overflow:hidden;
+}
+.top{
+  background:linear-gradient(135deg,var(--red) 0%,var(--red-deep) 100%);
+  color:#fff;
+  padding:40px 36px 32px;
+  text-align:center;
+  position:relative;
+}
+.top::after{
+  content:"";
+  position:absolute;left:0;right:0;bottom:0;height:4px;
+  background:var(--gold);
+}
+.badge{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  font-size:12px;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  font-weight:600;
+  background:rgba(255,255,255,.16);
+  padding:7px 14px;
+  border-radius:999px;
+  margin-bottom:20px;
+}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--gold)}
+.top h1{
+  font-size:26px;
+  font-weight:700;
+  line-height:1.25;
+  margin-bottom:8px;
+}
+.top .lo{
+  font-size:16px;
+  font-weight:500;
+  opacity:.92;
+}
+.body{
+  padding:32px 36px 36px;
+  text-align:center;
+}
+.body p{
+  color:var(--muted);
+  font-size:15px;
+  line-height:1.65;
+  margin-bottom:14px;
+}
+.body p.lo{
+  font-size:14px;
+}
+.event{
+  margin:24px 0 6px;
+  padding:18px 20px;
+  background:var(--paper);
+  border:1px solid var(--line);
+  border-radius:14px;
+  text-align:left;
+}
+.event .ev-name{
+  font-weight:700;
+  font-size:15px;
+  color:var(--red-deep);
+  margin-bottom:4px;
+}
+.event .ev-full{
+  font-size:12.5px;
+  color:var(--muted);
+  margin-bottom:8px;
+}
+.event .ev-detail{
+  font-size:13.5px;
+  color:var(--muted);
+  line-height:1.6;
+}
+.contact{
+  margin-top:26px;
+  font-size:13.5px;
+  color:var(--muted);
+  line-height:1.7;
+}
+.contact strong{color:var(--ink)}
+.wa{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  margin-top:14px;
+  padding:11px 20px;
+  background:#25D366;
+  color:#fff;
+  text-decoration:none;
+  font-weight:600;
+  font-size:14px;
+  border-radius:999px;
+  transition:opacity .15s ease;
+}
+.wa:hover{opacity:.9}
+.wa svg{width:18px;height:18px;fill:#fff}
+.foot{
+  padding:18px 36px 26px;
+  text-align:center;
+  border-top:1px solid var(--line);
+  font-size:12px;
+  color:var(--muted);
+  letter-spacing:.02em;
+}
+@media(max-width:480px){
+  .top,.body{padding-left:24px;padding-right:24px}
+  .top h1{font-size:22px}
+}
+</style>
+</head>
+<body>
+  <div class="card">
+    <div class="top">
+      <span class="badge"><span class="dot"></span>Registration Closed</span>
+      <h1>Registration is now closed</h1>
+      <div class="lo">ໝົດເຂດການລົງທະບຽນແລ້ວ</div>
+    </div>
+    <div class="body">
+      <p>Thank you to all families who registered. The registration period for the ACL International Finals 2026 has ended, and we are no longer accepting new entries.</p>
+      <p class="lo">ຂອບໃຈຄອບຄົວທຸກທ່ານທີ່ໄດ້ລົງທະບຽນ. ໄລຍະການລົງທະບຽນສຳລັບ ACL International Finals 2026 ໄດ້ສິ້ນສຸດລົງແລ້ວ ແລະ ພວກເຮົາຈະບໍ່ຮັບການລົງທະບຽນເພີ່ມເຕີມອີກ.</p>
+
+      <div class="event">
+        <div class="ev-name">ACL International Finals 2026</div>
+        <div class="ev-full">Asian Champions League — Mathematics, Science, English (AMCL / ASCL / AECL)</div>
+        <div class="ev-detail">
+          Bangkok, Thailand · Twin Towers Hotel<br>
+          8 to 11 August 2026
+        </div>
+      </div>
+
+      <div class="contact">
+        If you have any questions, please contact<br>
+        <strong>Mr. Rommel Albon</strong>, Golden International School
+        <br>
+        <a class="wa" href="https://wa.me/8562093147785" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm0 18.15h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.23 8.23 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24 2.2 0 4.27.86 5.83 2.42a8.19 8.19 0 0 1 2.41 5.83c0 4.55-3.7 8.24-8.24 8.24zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.25-.64.81-.78.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.13-.14.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43-.14-.01-.31-.01-.48-.01a.92.92 0 0 0-.67.31c-.23.25-.87.85-.87 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.14-1.18-.06-.11-.22-.17-.47-.29z"/></svg>
+          +856 20 9314 7785
+        </a>
+      </div>
+    </div>
+    <div class="foot">
+      Golden International School · Vientiane, Lao PDR
+    </div>
+  </div>
+</body>
+</html>
